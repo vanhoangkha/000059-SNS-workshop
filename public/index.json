@@ -1,0 +1,99 @@
+[
+{
+	"uri": "/2-prerequiste/2.1-bootstrapawscloud9/",
+	"title": "Deploy infrastructure",
+	"tags": [],
+	"description": "",
+	"content": "Deploy infrastructure  First of all to do the lab, we need to initialize the resource with CloudFormation   You access the link to initialize the resource Serverless Check the interface and select Create stack  Wait about 5-10 minutes, Stack will initialize successfully  Select Output of the stack just created. Then access the path Cloud9 created.  Configure the Cloud9 environment created from the CloudFormation stack  cd ~/environment/wild-rydes-async-messaging/code/lab-0\rchmod +x configureCloud9.sh\r./configureCloud9.sh "
+},
+{
+	"uri": "/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Overview As a registered customer, when you need a ride, you can use the Wild Rydes customer app to request a unicorn and manage everything around it. As a registered unicorn, you can use the Wild Rydes unicorn app to manage everything around your business.\nIn particular, unicorns are interested to use the app to submit a ride completion after they have successfully delivered a customer to their destination. This is the use case we will now have a closer look at.\nAt Wild Rydes, end-user clients typically communicate via REST APIs with the backend services. For our use case, the Wild Rydes unicorn app interacts with the API exposed by the unicorn management service. It uses the submit-ride-completion resource to send the relevant details of the ride to the backend. In response to that, the backend creates a new completed-ride resource and returns the respective status code, the location, and a representation of the new resource to the client.\nIt’s probably not a surprise that there are other services in the Wild Rydes microservices landscape, that are also interested in a new completed ride:\nCustomer notification service: Customers should get a notification into their app about their latest completed ride. Customer accounting service: After all, Wild Rydes is a business, so this service would be responsible to collect the fare from the customer. Extraordinary rides service: This is special service that is interested in rides with fares or distances above certain thresholds - preparing the respective data for marketeers and success managers. This use case obviously cries for making use of publish/subscribe messaging, which can comfortably done using Amazon SNS in a serverless and scalable manner. It decouples both sides as much as possible. Services on the right hand side can autonomously subscribe to the topic, transparent to the left hand side.\n"
+},
+{
+	"uri": "/",
+	"title": "Working with SNS",
+	"tags": [],
+	"description": "",
+	"content": "Working with SNS Overview As a registered customer, when you need a ride, you can use the Wild Rydes customer app to request a unicorn and manage everything around it. As a registered unicorn, you can use the Wild Rydes unicorn app to manage everything around your business.\nIn particular, unicorns are interested to use the app to submit a ride completion after they have successfully delivered a customer to their destination. This is the use case we will now have a closer look at.\nAt Wild Rydes, end-user clients typically communicate via REST APIs with the backend services. For our use case, the Wild Rydes unicorn app interacts with the API exposed by the unicorn management service. It uses the submit-ride-completion resource to send the relevant details of the ride to the backend. In response to that, the backend creates a new completed-ride resource and returns the respective status code, the location, and a representation of the new resource to the client.\nIt’s probably not a surprise that there are other services in the Wild Rydes microservices landscape, that are also interested in a new completed ride:\nCustomer notification service: Customers should get a notification into their app about their latest completed ride. Customer accounting service: After all, Wild Rydes is a business, so this service would be responsible to collect the fare from the customer. Extraordinary rides service: This is special service that is interested in rides with fares or distances above certain thresholds - preparing the respective data for marketeers and success managers. This use case obviously cries for making use of publish/subscribe messaging, which can comfortably done using Amazon SNS in a serverless and scalable manner. It decouples both sides as much as possible. Services on the right hand side can autonomously subscribe to the topic, transparent to the left hand side.\nThis hands-on lab will continue the story of the previous lab Building a serverless web app Wild Rydes\n\rContent  Introduction Preparation steps Using SAM to deploy infrastructure Create Amazon SNS Topic Create Customer notification service Create Customer accounting service Create Extraordinary rides service Update Unicorn Management Service Fan-out test and message filtering Resource Cleanup  "
+},
+{
+	"uri": "/2-prerequiste/",
+	"title": "Preparation",
+	"tags": [],
+	"description": "",
+	"content": "Preparation First, we\u0026rsquo;ll set up the initial state, which includes the integration of Unicorn Management Service (leveraging Amazon API Gateway and AWS Lambda), Rides Store (levering Amazon DynamoDB), and three Serverless backend services - Customer notification, Customer accounting, and Extraordinary rides service.\nContent  Infrastructure Deployment  "
+},
+{
+	"uri": "/3-initstate/",
+	"title": "Using SAM to deploy infrastructure",
+	"tags": [],
+	"description": "",
+	"content": "Using SAM to deploy infrastructure  Access to Cloud9   Select Your environments Select WildRydesAsyncMessaging Select Open IDE  After opening the Cloud9 interface. We start building artifacts from the source  cd ~/environment/wild-rydes-async-messaging/lab-1\rSam build Next we deploy the application  export AWS_REGION=$(aws --profile default configure get region)\rsam deploy \\\r--stack-name wild-rydes-async-msg-1 \\\r--capabilities CAPABILITY_IAM \\\r--region $AWS_REGION \\\r--guided  Type Enter 4 times Go to SubmitRideCompletionFunction may not have authorization defined, Is this okay? [y/N]: then enter y Continue typing Enter 4 more times.  Wait for 10 minutes to complete the application deployment.  Check from the stack interface of CloudFormation that the stack has been created.  Check the Lambda interface, there are already 4 functions created.  Check DynamoDB, a new table has appeared.  "
+},
+{
+	"uri": "/4-createsnstopic/",
+	"title": "Create Amazon SNS Topic",
+	"tags": [],
+	"description": "",
+	"content": "Create Amazon SNS Topic  Access the Cloud9 IDE interface   Open SAM template wild-rydes-async-messaging/lab-1/template.yaml In the Resources section, uncomment the following code:   RideCompletionTopic:\rType: AWS::SNS::Topic\rProperties:\rTopicName: RideCompletionTopic Update AWS SAM template  cd ~/environment/wild-rydes-async-messaging/lab-1\rSam build Implement initialization SNS topic  sam deploy "
+},
+{
+	"uri": "/5-createcnss/",
+	"title": "Create Customer notification service",
+	"tags": [],
+	"description": "",
+	"content": "Create Customer notification  Access to AWS SNS   Select RideCompletionTopic Select Create subscription  Return to Cloud9 interface to run the command to view Endpoint  aws cloudformation describe-stacks \\\r--stack-name wild-rydes-async-msg-1 \\\r--query \u0026#39;Stacks[].Outputs[?OutputKey==`CustomerNotificationFunction`].OutputValue\u0026#39; \\\r--output text In the Create subscription interface   Topic ARN to default Protocol select AWS Lambda Enpoint, import the output from Cloud9 Select Create subscription  Access to Lambda   Select Customer Notification function  Check the Lambda function that triggered the SNS.  "
+},
+{
+	"uri": "/6-create/",
+	"title": "Create Customer accounting service",
+	"tags": [],
+	"description": "",
+	"content": "Create Customer accounting service  Access to SNS   Select Topic Select RideCompletionTopic Select Create subscription  Go back to the Cloud9 interface and run the command to see the Endpoint  aws cloudformation describe-stacks \\\r--stack-name wild-rydes-async-msg-1 \\\r--query \u0026#39;Stacks[].Outputs[?OutputKey==`CustomerAccountingFunction`].OutputValue\u0026#39; \\\r--output text In the Create subscription interface   Topic ARN keep default Protocol, select Lambda Endpoint, enter the value Output of Cloud9 Select Create subscription  Complete subscription creation  Access to AWS Lambda   Select Customer Accounting function  Check the Lambda function that triggered the SNS.  "
+},
+{
+	"uri": "/7-create/",
+	"title": "Create Extraordinary rides service",
+	"tags": [],
+	"description": "",
+	"content": "Create Extraordinary rides service After we have created an SNS subscription using the console, we will try to create an SNS subscription using SAM.\n Update AWS SAM template   Open the file wild-rydes-async-messaging/lab-1/template.yaml in Cloud9 and update the following code  Events:\rSNSEvent:\rType: SNS\rProperties:\rTopic: !Ref RideCompletionTopic\rFilterPolicy:\rfare:\r- numeric:\r- \u0026#39;\u0026gt;=\u0026#39;\r- 50\rdistance:\r- numeric:\r- \u0026#39;\u0026gt;=\u0026#39;\r- 20 Update with the following command:  cd ~/environment/wild-rydes-async-messaging/lab-1\rSam build After updating we will deploy with the command:  sam deploy Check the subscription has been created successfully.  Check Lambda Function triggered SNS.  "
+},
+{
+	"uri": "/8-update/",
+	"title": "Update Unicorn Management Service",
+	"tags": [],
+	"description": "",
+	"content": "Update Unicorn Management Service After creating SNS Topic and subscriptions according to the architecture:\n First we grant IAM permission to Lambda   Updated SAM template wild-rydes-async-messaging/lab-1/template.yaml  - SNSPublishMessagePolicy:\rTopicName: !GetAtt RideCompletionTopic.TopicName Next we have to give Amazon SNS topic ARN to Lambda.   Keep updating SAM template wild-rydes-async-messaging/lab-1/template.yaml  TOPIC_ARN: !Ref RideCompletionTopic Then we will update the Lambda function to call Amazon SNS   Open the file wild-rydes-async-messaging/lab-1/unicorn-management-service/app.py  sns = boto3.client(\u0026#39;sns\u0026#39;, config=config) Next, we will put the item to DynamoDB   response = sns.publish(\rTopicArn=TOPIC_ARN,\rMessage=json.dumps(request),\rMessageAttributes = {\r\u0026#39;fare\u0026#39;: {\r\u0026#39;DataType\u0026#39;: \u0026#39;Number\u0026#39;,\r\u0026#39;StringValue\u0026#39;: str(request[\u0026#39;fare\u0026#39;])\r},\r\u0026#39;distance\u0026#39;: {\r\u0026#39;DataType\u0026#39;: \u0026#39;Number\u0026#39;,\r\u0026#39;StringValue\u0026#39;: str(request[\u0026#39;distance\u0026#39;])\r}\r}\r) Update the template with the following command:  cd ~/environment/wild-rydes-async-messaging/lab-1\rSam build After updating, we deploy with the following command:  sam deploy "
+},
+{
+	"uri": "/9-test/",
+	"title": "Test Fan-Out and message filtering",
+	"tags": [],
+	"description": "",
+	"content": "Test Fan-Out and filter messages In this step, we will confirm that Amazon SNS Topic is publishing all messages to all subscribers. Since the subscriber may also not be able to process the message, we also want to confirm that Amazon SNS is resending the message so that we don\u0026rsquo;t miss a single message.\n Check API Gateway endpoint  aws cloudformation describe-stacks \\\r--stack-name wild-rydes-async-msg-1 \\\r--query \u0026#39;Stacks[].Outputs[?OutputKey==`UnicornManagementServiceApiSubmitRideCompletionEndpoint`].OutputValue\u0026#39; \\\r--output text Store the API Gateway endpoint URL.  export ENDPOINT=$(aws cloudformation describe-stacks \\\r--stack-name wild-rydes-async-msg-1 \\\r--query \u0026#39;Stacks[].Outputs[?OutputKey==`UnicornManagementServiceApiSubmitRideCompletionEndpoint`].OutputValue\u0026#39; \\\r--output text)  Send couple request to Unicorn Management Service  curl -XPOST -i -H \u0026#34;Content-Type:application/json\u0026#34; -d \u0026#39;{ \u0026#34;from\u0026#34;: \u0026#34;Berlin\u0026#34;, \u0026#34;to\u0026#34;: \u0026#34;Frankfurt\u0026#34;, \u0026#34;duration\u0026#34;: 420, \u0026#34;distance\u0026#34;: 600, \u0026#34;customer \u0026#34;: \u0026#34;cmr\u0026#34;, \u0026#34;fare\u0026#34;: 256.50 }\u0026#39; $ENDPOINT Access to CloudWatch   Select Log groups Select /aws/lambda/wild-rydes-async-msg-1-  In the log group interface   Select Log streams Select the log stream that has been created.  Observe detailed log events.  "
+},
+{
+	"uri": "/10-cleanup/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": "Clean up resources Delete AWS SAM template  Go to the AWS Cloud9 interface Run the following command:  cd ~/environment/wild-rydes-async-messaging/lab-1\raws cloudformation delete-stack \\\r--stack-name wild-rydes-async-msg-1 "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
