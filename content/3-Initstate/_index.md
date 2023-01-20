@@ -21,7 +21,7 @@ pre : " <b> 3. </b> "
 
 ```
 cd ~/environment/wild-rydes-async-messaging/lab-1
-Sam build
+sam build
 ```
 
 ![Working with SNS](/images/2/2.1/0002.png?featherlight=false&width=90pc)
