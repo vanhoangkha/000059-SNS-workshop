@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kiểm tra Fan-Out và lọc tin nhắn :: LÀM VIỆC VỚI SNS</title>
 
     
-    <link href="/css/nucleus.css?1701079390" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701079390" rel="stylesheet">
-    <link href="/css/hybrid.css?1701079390" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701079390" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701079390" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701079390" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701079390" rel="stylesheet">
-    <link href="/css/theme.css?1701079390" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701079390" rel="stylesheet">
+    <link href="/css/nucleus.css?1733805318" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733805318" rel="stylesheet">
+    <link href="/css/hybrid.css?1733805318" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733805318" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733805318" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733805318" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733805318" rel="stylesheet">
+    <link href="/css/theme.css?1733805318" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733805318" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701079390" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733805318" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701079390"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733805318"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701079390"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701079390"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733805318"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733805318"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701079390"></script>
+<script type="text/javascript" src="/js/search.js?1733805318"></script>
 
     
   </div>
@@ -331,7 +331,7 @@
   
     
     <li data-nav-id="/vi/9-test/" title="Kiểm tra Fan-Out và lọc tin nhắn" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -465,7 +465,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -563,7 +563,7 @@
     --stack-name wild-rydes-async-msg-1 \
     --query &#39;Stacks[].Outputs[?OutputKey==`UnicornManagementServiceApiSubmitRideCompletionEndpoint`].OutputValue&#39; \
     --output text
-</code></pre><p><img src="/images/2/2.7/0001.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+</code></pre><p><img alt="Working with SNS" src="/images/2/2.7/0001.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Lưu trữ API Gateway endpoint URL.</li>
 </ol>
@@ -575,7 +575,7 @@
 <li>Gửi couple request đến <strong>Unicorn Management Service</strong></li>
 </ul>
 <pre tabindex="0"><code>curl -XPOST -i -H &#34;Content-Type:application/json&#34; -d &#39;{ &#34;from&#34;: &#34;Berlin&#34;, &#34;to&#34;: &#34;Frankfurt&#34;, &#34;duration&#34;: 420, &#34;distance&#34;: 600, &#34;customer&#34;: &#34;cmr&#34;, &#34;fare&#34;: 256.50 }&#39; $ENDPOINT
-</code></pre><p><img src="/images/2/2.7/0002.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+</code></pre><p><img alt="Working with SNS" src="/images/2/2.7/0002.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Truy cập vào <strong>CloudWatch</strong></li>
 </ol>
@@ -583,7 +583,7 @@
 <li>Chọn <strong>Log groups</strong></li>
 <li>Chọn <strong>/aws/lambda/wild-rydes-async-msg-1-</strong></li>
 </ul>
-<p><img src="/images/2/2.7/0003.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+<p><img alt="Working with SNS" src="/images/2/2.7/0003.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Trong giao diện log group</li>
 </ol>
@@ -591,11 +591,11 @@
 <li>Chọn <strong>Log streams</strong></li>
 <li>Chọn log stream đã được tạo.</li>
 </ul>
-<p><img src="/images/2/2.7/0004.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+<p><img alt="Working with SNS" src="/images/2/2.7/0004.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Quan sát chi tiết log events.</li>
 </ol>
-<p><img src="/images/2/2.7/0005.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+<p><img alt="Working with SNS" src="/images/2/2.7/0005.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -838,19 +838,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701079390"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701079390"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701079390"></script>
-    <script src="/js/jquery.sticky.js?1701079390"></script>
-    <script src="/js/featherlight.min.js?1701079390"></script>
-    <script src="/js/highlight.pack.js?1701079390"></script>
+    <script src="/js/clipboard.min.js?1733805318"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733805318"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733805318"></script>
+    <script src="/js/jquery.sticky.js?1733805318"></script>
+    <script src="/js/featherlight.min.js?1733805318"></script>
+    <script src="/js/highlight.pack.js?1733805318"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701079390"></script>
-    <script src="/js/learn.js?1701079390"></script>
-    <script src="/js/hugo-learn.js?1701079390"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733805318"></script>
+    <script src="/js/learn.js?1733805318"></script>
+    <script src="/js/hugo-learn.js?1733805318"></script>
 
-    <link href="/mermaid/mermaid.css?1701079390" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701079390"></script>
+    <link href="/mermaid/mermaid.css?1733805318" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733805318"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

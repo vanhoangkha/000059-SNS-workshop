@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Working with SNS :: WORKING WITH SNS</title>
 
     
-    <link href="/css/nucleus.css?1701079389" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701079389" rel="stylesheet">
-    <link href="/css/hybrid.css?1701079389" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701079389" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701079389" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701079389" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701079389" rel="stylesheet">
-    <link href="/css/theme.css?1701079389" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701079389" rel="stylesheet">
+    <link href="/css/nucleus.css?1733805318" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733805318" rel="stylesheet">
+    <link href="/css/hybrid.css?1733805318" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733805318" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733805318" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733805318" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733805318" rel="stylesheet">
+    <link href="/css/theme.css?1733805318" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733805318" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701079389" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733805318" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701079389"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733805318"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701079389"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701079389"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733805318"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733805318"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701079389"></script>
+<script type="text/javascript" src="/js/search.js?1733805318"></script>
 
     
   </div>
@@ -465,7 +465,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -512,23 +512,23 @@
 Customer accounting service: After all, Wild Rydes is a business, so this service would be responsible to collect the fare from the customer.
 Extraordinary rides service: This is special service that is interested in rides with fares or distances above certain thresholds - preparing the respective data for marketeers and success managers.
 This use case obviously cries for making use of publish/subscribe messaging, which can comfortably done using Amazon SNS in a serverless and scalable manner. It decouples both sides as much as possible. Services on the right hand side can autonomously subscribe to the topic, transparent to the left hand side.</p>
-<p><img src="/images/1/0000.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+<p><img alt="Working with SNS" src="/images/1/0000.png?featherlight=false&width=90pc"></p>
 
 <div class="notices tip" ><p>This hands-on lab will continue the story of the previous lab <a href="https://000036.awsstudygroup.com/en">Building a serverless web app Wild Rydes</a></p>
 </div>
 
 <h4 id="content">Content</h4>
 <ol>
-<li><a href="1-introduce/">Introduction</a></li>
-<li><a href="2-prerequiste/">Preparation steps</a></li>
-<li><a href="3-initstate/">Using SAM to deploy infrastructure</a></li>
-<li><a href="4-createsnstopic/">Create Amazon SNS Topic</a></li>
-<li><a href="5-createcnss/">Create Customer notification service</a></li>
-<li><a href="6-create/">Create Customer accounting service</a></li>
-<li><a href="7-create/">Create Extraordinary rides service</a></li>
-<li><a href="8-update/">Update Unicorn Management Service</a></li>
-<li><a href="9-test/">Fan-out test and message filtering</a></li>
-<li><a href="10-cleanup/">Resource Cleanup</a></li>
+<li><a href="/1-introduce/">Introduction</a></li>
+<li><a href="/2-prerequiste/">Preparation steps</a></li>
+<li><a href="/3-initstate/">Using SAM to deploy infrastructure</a></li>
+<li><a href="/4-createsnstopic/">Create Amazon SNS Topic</a></li>
+<li><a href="/5-createcnss/">Create Customer notification service</a></li>
+<li><a href="/6-create/">Create Customer accounting service</a></li>
+<li><a href="/7-create/">Create Extraordinary rides service</a></li>
+<li><a href="/8-update/">Update Unicorn Management Service</a></li>
+<li><a href="/9-test/">Fan-out test and message filtering</a></li>
+<li><a href="/10-cleanup/">Resource Cleanup</a></li>
 </ol>
 	
   
@@ -759,19 +759,19 @@ This use case obviously cries for making use of publish/subscribe messaging, whi
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701079390"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701079390"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701079390"></script>
-    <script src="/js/jquery.sticky.js?1701079390"></script>
-    <script src="/js/featherlight.min.js?1701079390"></script>
-    <script src="/js/highlight.pack.js?1701079390"></script>
+    <script src="/js/clipboard.min.js?1733805318"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733805318"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733805318"></script>
+    <script src="/js/jquery.sticky.js?1733805318"></script>
+    <script src="/js/featherlight.min.js?1733805318"></script>
+    <script src="/js/highlight.pack.js?1733805318"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701079390"></script>
-    <script src="/js/learn.js?1701079390"></script>
-    <script src="/js/hugo-learn.js?1701079390"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733805318"></script>
+    <script src="/js/learn.js?1733805318"></script>
+    <script src="/js/hugo-learn.js?1733805318"></script>
 
-    <link href="/mermaid/mermaid.css?1701079390" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701079390"></script>
+    <link href="/mermaid/mermaid.css?1733805318" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733805318"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

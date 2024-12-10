@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Deploy infrastructure :: WORKING WITH SNS</title>
 
     
-    <link href="/css/nucleus.css?1701079389" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701079389" rel="stylesheet">
-    <link href="/css/hybrid.css?1701079389" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701079389" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701079389" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701079389" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701079389" rel="stylesheet">
-    <link href="/css/theme.css?1701079389" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701079389" rel="stylesheet">
+    <link href="/css/nucleus.css?1733805318" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733805318" rel="stylesheet">
+    <link href="/css/hybrid.css?1733805318" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733805318" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733805318" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733805318" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733805318" rel="stylesheet">
+    <link href="/css/theme.css?1733805318" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733805318" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701079389" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733805318" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701079389"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733805318"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701079389"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701079389"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733805318"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733805318"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701079389"></script>
+<script type="text/javascript" src="/js/search.js?1733805318"></script>
 
     
   </div>
@@ -140,7 +140,7 @@
   
     
     <li data-nav-id="/2-prerequiste/2.1-bootstrapawscloud9/" title="Deploy infrastructure" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -465,7 +465,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -565,25 +565,25 @@
 <li>First of all to do the lab, we need to initialize the resource with <strong>CloudFormation</strong></li>
 </ol>
 <ul>
-<li>You access the link to initialize the resource <a href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?stackName=wild-rydes-async-msg-0&amp;templateURL=https://s3.amazonaws.com/ee-assets-prod-us-east-1%2fmodules%2f32af13c099e8423b8edb09255cec1b9f%2fv4%2ftemplate.yaml">Serverless</a></li>
+<li>You access the link to initialize the resource <a href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?stackName=wild-rydes-async-msg-0&templateURL=https://s3.amazonaws.com/ee-assets-prod-us-east-1%2fmodules%2f32af13c099e8423b8edb09255cec1b9f%2fv4%2ftemplate.yaml">Serverless</a></li>
 <li>Check the interface and select <strong>Create stack</strong></li>
 </ul>
-<p><img src="/images/1/0001.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+<p><img alt="Working with SNS" src="/images/1/0001.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Wait about 5-10 minutes, Stack will initialize successfully</li>
 </ol>
-<p><img src="/images/1/0002.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+<p><img alt="Working with SNS" src="/images/1/0002.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Select <strong>Output</strong> of the stack just created. Then access the path <strong>Cloud9</strong> created.</li>
 </ol>
-<p><img src="/images/1/0003.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+<p><img alt="Working with SNS" src="/images/1/0003.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Configure the <strong>Cloud9</strong> environment created from the <strong>CloudFormation stack</strong></li>
 </ol>
 <pre tabindex="0"><code>cd ~/environment/wild-rydes-async-messaging/code/lab-0
 chmod +x configureCloud9.sh
 ./configureCloud9.sh
-</code></pre><p><img src="/images/1/0004.png?featherlight=false&amp;width=90pc" alt="Working with SNS"></p>
+</code></pre><p><img alt="Working with SNS" src="/images/1/0004.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -827,19 +827,19 @@ chmod +x configureCloud9.sh
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701079390"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701079390"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701079390"></script>
-    <script src="/js/jquery.sticky.js?1701079390"></script>
-    <script src="/js/featherlight.min.js?1701079390"></script>
-    <script src="/js/highlight.pack.js?1701079390"></script>
+    <script src="/js/clipboard.min.js?1733805318"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733805318"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733805318"></script>
+    <script src="/js/jquery.sticky.js?1733805318"></script>
+    <script src="/js/featherlight.min.js?1733805318"></script>
+    <script src="/js/highlight.pack.js?1733805318"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701079390"></script>
-    <script src="/js/learn.js?1701079390"></script>
-    <script src="/js/hugo-learn.js?1701079390"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733805318"></script>
+    <script src="/js/learn.js?1733805318"></script>
+    <script src="/js/hugo-learn.js?1733805318"></script>
 
-    <link href="/mermaid/mermaid.css?1701079390" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701079390"></script>
+    <link href="/mermaid/mermaid.css?1733805318" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733805318"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
