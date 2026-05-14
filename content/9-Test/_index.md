@@ -1,6 +1,6 @@
 ---
 title : "Test Fan-Out and message filtering"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 9
 chapter : false
 pre : " <b> 9. </b> "
