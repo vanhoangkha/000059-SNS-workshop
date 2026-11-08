@@ -1,4 +1,4 @@
-# 📢 SNS Workshop
+# SNS Workshop
 
 Implement pub/sub messaging with Amazon SNS.
 
@@ -8,7 +8,7 @@ This is a hands-on workshop from the **AWS First Cloud Journey** series, designe
 
 ## Workshop
 
-📖 **[Start the workshop](https://vanhoangkha.github.io/000059-SNS-workshop/)**
+**[Start the workshop](https://vanhoangkha.github.io/000059-SNS-workshop/)**
 
 ## Prerequisites
 
